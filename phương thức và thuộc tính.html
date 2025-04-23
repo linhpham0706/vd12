@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ví dụ DOM classList</title>
+<style>
+  .button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+  }
+
+  .highlight {
+    font-weight: bold;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<button id="myButton" class="button">Nhấn vào tôi</button>
+<p id="message">Đây là một đoạn văn bản.</p>
+
+<script>
+  const button = document.getElementById('myButton');
+  const message = document.getElementById('message');
+
+  button.addEventListener('click', function() {
+    // Thêm hoặc xóa lớp 'active' của nút
+    this.classList.toggle('active');
+
+    // Kiểm tra xem nút có lớp 'active' hay không và thay đổi nội dung của đoạn văn
+    if (this.classList.contains('active')) {
+      message.textContent = 'Nút đã được kích hoạt!';
+      message.classList.add('highlight'); // Thêm lớp 'highlight'
+    } else {
+      message.textContent = 'Nhấn vào nút để kích hoạt.';
+      message.classList.remove('highlight'); // Xóa lớp 'highlight'
+    }
+  });
+</script>
+
+</body>
+</html>
